@@ -1,0 +1,52 @@
+#include <metal_stdlib>
+using namespace metal;
+
+// Periodic cellular crust, sheared by two convection fields. The small shared
+// texture is updated at 15 Hz; all lava tiles sample its mip chain.
+float4 lavaField(float2 uv, float time) {
+  const float tau = 6.28318530718f;
+  float2 p = uv * 8.0f;
+  p.x += .48f * sin(tau * uv.y + time * .075f) + .19f * sin(tau * (uv.x + uv.y) - time * .041f);
+  p.y += .48f * sin(tau * uv.x - time * .061f) + .19f * cos(tau * (uv.x - uv.y) + time * .035f);
+  float2 cell = floor(p);
+  float first = 1e6f, second = 1e6f;
+  for (int y = -1; y <= 1; ++y) {
+    for (int x = -1; x <= 1; ++x) {
+      float2 neighbor = cell + float2(x,y);
+      float2 wrapped = neighbor - floor(neighbor / 8.0f) * 8.0f;
+      float2 random = fract(sin(float2(dot(wrapped, float2(127.1f,311.7f)),
+        dot(wrapped, float2(269.5f,183.3f)))) * 43758.5453f);
+      float2 offset = neighbor + .2f + random * .6f - p;
+      float distanceSquared = dot(offset,offset);
+      if (distanceSquared < first) { second = first; first = distanceSquared; }
+      else if (distanceSquared < second) { second = distanceSquared; }
+    }
+  }
+  float crack = 1.0f - smoothstep(.018f,.115f,sqrt(second)-sqrt(first));
+  float flow = .5f + .5f * sin(tau*(uv.x*3.0f-uv.y*2.0f)+time*.19f+sin(tau*uv.y*4.0f));
+  float upwelling = pow(max(0.0f,flow-.35f),3.0f) * (1.0f-smoothstep(.02f,.12f,first));
+  float heat = saturate(crack * (.68f + .32f * flow) + upwelling);
+  float wrinkle = sin(tau*(uv.x*37.0f+uv.y*19.0f)+sin(tau*uv.y*7.0f)*2.0f);
+  return float4((1.0f-crack)*(.35f+.10f*wrinkle)+heat*.035f,heat,crack,wrinkle);
+}
+
+kernel void animateLavaSurface(texture2d<float, access::write> albedo [[texture(0)]],
+  texture2d<float, access::write> emission [[texture(1)]],
+  texture2d<float, access::write> normals [[texture(2)]],
+  texture2d<float, access::write> roughness [[texture(3)]],
+  constant float &time [[buffer(0)]], uint2 pixel [[thread_position_in_grid]]) {
+  if (pixel.x >= albedo.get_width() || pixel.y >= albedo.get_height()) return;
+  float2 step = 1.0f / float2(albedo.get_width(), albedo.get_height());
+  float2 uv = float2(pixel) * step;
+  float4 sample = lavaField(uv,time);
+  float3 crust = float3(.045f,.027f,.023f) + sample.w * float3(.008f,.005f,.004f);
+  float3 color = mix(crust,float3(.32f,.065f,.009f),sample.z);
+  float heat = sample.y;
+  float dx = (lavaField(uv+float2(step.x,0),time).x - sample.x)*3.8f;
+  float dy = (lavaField(uv+float2(0,step.y),time).x - sample.x)*3.8f;
+  float3 normal = normalize(float3(-dx,-dy,1));
+  albedo.write(float4(color,1),pixel);
+  emission.write(float4(heat,pow(heat,3.0f)*.28f,pow(heat,7.0f)*.014f,1),pixel);
+  normals.write(float4(normal*.5f+.5f,1),pixel);
+  roughness.write(float4(mix(.96f,.48f,sample.z)),pixel);
+}

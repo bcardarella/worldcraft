@@ -1,0 +1,4 @@
+// Public defaults. Personal signing values live only in the ignored include.
+CODE_SIGN_STYLE = Automatic
+WORLDCRAFT_BUNDLE_ID_PREFIX = com.worldcraft
+#include? "Signing.local.xcconfig"

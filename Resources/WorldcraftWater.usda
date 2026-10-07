@@ -1,0 +1,387 @@
+#usda 1.0
+( defaultPrim = "WorldcraftWater" )
+def Scope "WorldcraftWater" {
+    def Material "Surface" {
+        asset inputs:Normals = @WaterNormals.png@
+        asset inputs:Foam = @WaterFoam.png@
+        color3f inputs:HazeColor = (0.3, 0.5, 0.6)
+        float inputs:HazeAmount = 0
+        token outputs:mtlx:surface.connect = </WorldcraftWater/Surface/Surface.outputs:out>
+        def Shader "UV" {
+            uniform token info:id = "ND_texcoord_vector2"
+            int inputs:index = 0
+            float2 outputs:out
+        }
+        def Shader "DetailUV" {
+            uniform token info:id = "ND_texcoord_vector2"
+            int inputs:index = 1
+            float2 outputs:out
+        }
+        def Shader "Optics" {
+            uniform token info:id = "ND_geomcolor_color4"
+            int inputs:index = 0
+            color4f outputs:out
+        }
+        def Shader "Depth" {
+            uniform token info:id = "ND_extract_color4"
+            color4f inputs:in.connect = </WorldcraftWater/Surface/Optics.outputs:out>
+            int inputs:index = 0
+            float outputs:out
+        }
+        def Shader "FoamAmount" {
+            uniform token info:id = "ND_extract_color4"
+            color4f inputs:in.connect = </WorldcraftWater/Surface/Optics.outputs:out>
+            int inputs:index = 1
+            float outputs:out
+        }
+        def Shader "RippleStrength" {
+            uniform token info:id = "ND_extract_color4"
+            color4f inputs:in.connect = </WorldcraftWater/Surface/Optics.outputs:out>
+            int inputs:index = 2
+            float outputs:out
+        }
+        def Shader "Transmission" {
+            uniform token info:id = "ND_extract_color4"
+            color4f inputs:in.connect = </WorldcraftWater/Surface/Optics.outputs:out>
+            int inputs:index = 3
+            float outputs:out
+        }
+        def Shader "SwellNormals" {
+            uniform token info:id = "ND_image_vector3"
+            asset inputs:file.connect = </WorldcraftWater/Surface.inputs:Normals>
+            float2 inputs:texcoord.connect = </WorldcraftWater/Surface/UV.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "CapillaryNormals" {
+            uniform token info:id = "ND_image_vector3"
+            asset inputs:file.connect = </WorldcraftWater/Surface.inputs:Normals>
+            float2 inputs:texcoord.connect = </WorldcraftWater/Surface/DetailUV.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "NormalSum" {
+            uniform token info:id = "ND_add_vector3"
+            float3 inputs:in1.connect = </WorldcraftWater/Surface/SwellNormals.outputs:out>
+            float3 inputs:in2.connect = </WorldcraftWater/Surface/CapillaryNormals.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "DecodedNormals" {
+            uniform token info:id = "ND_subtract_vector3"
+            float3 inputs:in1.connect = </WorldcraftWater/Surface/NormalSum.outputs:out>
+            float3 inputs:in2 = (1, 1, 1)
+            float3 outputs:out
+        }
+        def Shader "NormalStrength" {
+            uniform token info:id = "ND_combine3_vector3"
+            float inputs:in1.connect = </WorldcraftWater/Surface/RippleStrength.outputs:out>
+            float inputs:in2.connect = </WorldcraftWater/Surface/RippleStrength.outputs:out>
+            float inputs:in3 = 1
+            float3 outputs:out
+        }
+        def Shader "ScaledNormals" {
+            uniform token info:id = "ND_multiply_vector3"
+            float3 inputs:in1.connect = </WorldcraftWater/Surface/DecodedNormals.outputs:out>
+            float3 inputs:in2.connect = </WorldcraftWater/Surface/NormalStrength.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "WaterNormal" {
+            uniform token info:id = "ND_normalize_vector3"
+            float3 inputs:in.connect = </WorldcraftWater/Surface/ScaledNormals.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "FoamFilaments" {
+            uniform token info:id = "ND_image_color3"
+            asset inputs:file.connect = </WorldcraftWater/Surface.inputs:Foam>
+            float2 inputs:texcoord.connect = </WorldcraftWater/Surface/DetailUV.outputs:out>
+            color3f outputs:out
+        }
+        def Shader "FoamMask" {
+            uniform token info:id = "ND_extract_color3"
+            color3f inputs:in.connect = </WorldcraftWater/Surface/FoamFilaments.outputs:out>
+            int inputs:index = 0
+            float outputs:out
+        }
+        def Shader "FoamCoverage" {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </WorldcraftWater/Surface/FoamMask.outputs:out>
+            float inputs:in2.connect = </WorldcraftWater/Surface/FoamAmount.outputs:out>
+            float outputs:out
+        }
+        def Shader "DepthColor" {
+            uniform token info:id = "ND_mix_color3"
+            color3f inputs:fg = (0.006, 0.035, 0.09)
+            color3f inputs:bg = (0.035, 0.37, 0.31)
+            float inputs:mix.connect = </WorldcraftWater/Surface/Depth.outputs:out>
+            color3f outputs:out
+        }
+        def Shader "FoamedWater" {
+            uniform token info:id = "ND_mix_color3"
+            color3f inputs:fg = (0.80, 0.94, 0.91)
+            color3f inputs:bg.connect = </WorldcraftWater/Surface/DepthColor.outputs:out>
+            float inputs:mix.connect = </WorldcraftWater/Surface/FoamCoverage.outputs:out>
+            color3f outputs:out
+        }
+        def Shader "FoamRoughness" {
+            uniform token info:id = "ND_mix_float"
+            float inputs:fg = 0.58
+            float inputs:bg = 0.075
+            float inputs:mix.connect = </WorldcraftWater/Surface/FoamCoverage.outputs:out>
+            float outputs:out
+        }
+        def Shader "Coat" {
+            uniform token info:id = "ND_mix_float"
+            float inputs:fg = 0
+            float inputs:bg = 0.65
+            float inputs:mix.connect = </WorldcraftWater/Surface/FoamCoverage.outputs:out>
+            float outputs:out
+        }
+        def Shader "Visibility" {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1 = 1
+            float inputs:in2.connect = </WorldcraftWater/Surface.inputs:HazeAmount>
+            float outputs:out
+        }
+        def Shader "HazedDiffuse" {
+            uniform token info:id = "ND_multiply_color3FA"
+            color3f inputs:in1.connect = </WorldcraftWater/Surface/FoamedWater.outputs:out>
+            float inputs:in2.connect = </WorldcraftWater/Surface/Visibility.outputs:out>
+            color3f outputs:out
+        }
+        def Shader "HazeEmission" {
+            uniform token info:id = "ND_multiply_color3FA"
+            color3f inputs:in1.connect = </WorldcraftWater/Surface.inputs:HazeColor>
+            float inputs:in2.connect = </WorldcraftWater/Surface.inputs:HazeAmount>
+            color3f outputs:out
+        }
+        def Shader "WorldNormal" {
+            uniform token info:id = "ND_normal_vector3"
+            string inputs:space = "world"
+            float3 outputs:out
+        }
+        def Shader "View" {
+            uniform token info:id = "ND_realitykit_viewdirection_vector3"
+            string inputs:space = "world"
+            float3 outputs:out
+        }
+        def Shader "Facing" {
+            uniform token info:id = "ND_dotproduct_vector3"
+            float3 inputs:in1.connect = </WorldcraftWater/Surface/WorldNormal.outputs:out>
+            float3 inputs:in2.connect = </WorldcraftWater/Surface/View.outputs:out>
+            float outputs:out
+        }
+        def Shader "TwoSidedFacing" {
+            uniform token info:id = "ND_absval_float"
+            float inputs:in.connect = </WorldcraftWater/Surface/Facing.outputs:out>
+            float outputs:out
+        }
+        def Shader "FacingClamped" {
+            uniform token info:id = "ND_clamp_float"
+            float inputs:in.connect = </WorldcraftWater/Surface/TwoSidedFacing.outputs:out>
+            float outputs:out
+        }
+        def Shader "Grazing" {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1 = 1
+            float inputs:in2.connect = </WorldcraftWater/Surface/FacingClamped.outputs:out>
+            float outputs:out
+        }
+        def Shader "Fresnel" {
+            uniform token info:id = "ND_power_float"
+            float inputs:in1.connect = </WorldcraftWater/Surface/Grazing.outputs:out>
+            float inputs:in2 = 5
+            float outputs:out
+        }
+        def Shader "ViewOpacity" {
+            uniform token info:id = "ND_mix_float"
+            float inputs:fg = 0.98
+            float inputs:bg.connect = </WorldcraftWater/Surface/Transmission.outputs:out>
+            float inputs:mix.connect = </WorldcraftWater/Surface/Fresnel.outputs:out>
+            float outputs:out
+        }
+        def Shader "FoamOpacity" {
+            uniform token info:id = "ND_mix_float"
+            float inputs:fg = 0.98
+            float inputs:bg.connect = </WorldcraftWater/Surface/ViewOpacity.outputs:out>
+            float inputs:mix.connect = </WorldcraftWater/Surface/FoamCoverage.outputs:out>
+            float outputs:out
+        }
+        def Shader "Surface" {
+            uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+            color3f inputs:baseColor.connect = </WorldcraftWater/Surface/HazedDiffuse.outputs:out>
+            color3f inputs:emissiveColor.connect = </WorldcraftWater/Surface/HazeEmission.outputs:out>
+            float3 inputs:normal.connect = </WorldcraftWater/Surface/WaterNormal.outputs:out>
+            float inputs:roughness.connect = </WorldcraftWater/Surface/FoamRoughness.outputs:out>
+            float inputs:metallic = 0
+            float inputs:specular = 0.32
+            float inputs:clearcoat.connect = </WorldcraftWater/Surface/Coat.outputs:out>
+            float inputs:clearcoatRoughness = 0.06
+            float3 inputs:clearcoatNormal.connect = </WorldcraftWater/Surface/WaterNormal.outputs:out>
+            float inputs:opacity.connect = </WorldcraftWater/Surface/FoamOpacity.outputs:out>
+            token outputs:out
+        }
+    }
+    def Material "Horizon" {
+        asset inputs:Normals = @WaterNormals.png@
+        asset inputs:Foam = @WaterFoam.png@
+        color3f inputs:HazeColor = (0.3, 0.5, 0.6)
+        float inputs:HazeAmount = 0
+        token outputs:mtlx:surface.connect = </WorldcraftWater/Horizon/Surface.outputs:out>
+        def Shader "UV" {
+            uniform token info:id = "ND_texcoord_vector2"
+            int inputs:index = 0
+            float2 outputs:out
+        }
+        def Shader "DetailUV" {
+            uniform token info:id = "ND_texcoord_vector2"
+            int inputs:index = 1
+            float2 outputs:out
+        }
+        def Shader "Optics" {
+            uniform token info:id = "ND_geomcolor_color4"
+            int inputs:index = 0
+            color4f outputs:out
+        }
+        def Shader "Depth" {
+            uniform token info:id = "ND_extract_color4"
+            color4f inputs:in.connect = </WorldcraftWater/Horizon/Optics.outputs:out>
+            int inputs:index = 0
+            float outputs:out
+        }
+        def Shader "FoamAmount" {
+            uniform token info:id = "ND_extract_color4"
+            color4f inputs:in.connect = </WorldcraftWater/Horizon/Optics.outputs:out>
+            int inputs:index = 1
+            float outputs:out
+        }
+        def Shader "RippleStrength" {
+            uniform token info:id = "ND_extract_color4"
+            color4f inputs:in.connect = </WorldcraftWater/Horizon/Optics.outputs:out>
+            int inputs:index = 2
+            float outputs:out
+        }
+        def Shader "Transmission" {
+            uniform token info:id = "ND_extract_color4"
+            color4f inputs:in.connect = </WorldcraftWater/Horizon/Optics.outputs:out>
+            int inputs:index = 3
+            float outputs:out
+        }
+        def Shader "SwellNormals" {
+            uniform token info:id = "ND_image_vector3"
+            asset inputs:file.connect = </WorldcraftWater/Horizon.inputs:Normals>
+            float2 inputs:texcoord.connect = </WorldcraftWater/Horizon/UV.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "CapillaryNormals" {
+            uniform token info:id = "ND_image_vector3"
+            asset inputs:file.connect = </WorldcraftWater/Horizon.inputs:Normals>
+            float2 inputs:texcoord.connect = </WorldcraftWater/Horizon/DetailUV.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "NormalSum" {
+            uniform token info:id = "ND_add_vector3"
+            float3 inputs:in1.connect = </WorldcraftWater/Horizon/SwellNormals.outputs:out>
+            float3 inputs:in2.connect = </WorldcraftWater/Horizon/CapillaryNormals.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "DecodedNormals" {
+            uniform token info:id = "ND_subtract_vector3"
+            float3 inputs:in1.connect = </WorldcraftWater/Horizon/NormalSum.outputs:out>
+            float3 inputs:in2 = (1, 1, 1)
+            float3 outputs:out
+        }
+        def Shader "NormalStrength" {
+            uniform token info:id = "ND_combine3_vector3"
+            float inputs:in1.connect = </WorldcraftWater/Horizon/RippleStrength.outputs:out>
+            float inputs:in2.connect = </WorldcraftWater/Horizon/RippleStrength.outputs:out>
+            float inputs:in3 = 1
+            float3 outputs:out
+        }
+        def Shader "ScaledNormals" {
+            uniform token info:id = "ND_multiply_vector3"
+            float3 inputs:in1.connect = </WorldcraftWater/Horizon/DecodedNormals.outputs:out>
+            float3 inputs:in2.connect = </WorldcraftWater/Horizon/NormalStrength.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "WaterNormal" {
+            uniform token info:id = "ND_normalize_vector3"
+            float3 inputs:in.connect = </WorldcraftWater/Horizon/ScaledNormals.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "FoamFilaments" {
+            uniform token info:id = "ND_image_color3"
+            asset inputs:file.connect = </WorldcraftWater/Horizon.inputs:Foam>
+            float2 inputs:texcoord.connect = </WorldcraftWater/Horizon/DetailUV.outputs:out>
+            color3f outputs:out
+        }
+        def Shader "FoamMask" {
+            uniform token info:id = "ND_extract_color3"
+            color3f inputs:in.connect = </WorldcraftWater/Horizon/FoamFilaments.outputs:out>
+            int inputs:index = 0
+            float outputs:out
+        }
+        def Shader "FoamCoverage" {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </WorldcraftWater/Horizon/FoamMask.outputs:out>
+            float inputs:in2.connect = </WorldcraftWater/Horizon/FoamAmount.outputs:out>
+            float outputs:out
+        }
+        def Shader "DepthColor" {
+            uniform token info:id = "ND_mix_color3"
+            color3f inputs:fg = (0.006, 0.035, 0.09)
+            color3f inputs:bg = (0.035, 0.37, 0.31)
+            float inputs:mix.connect = </WorldcraftWater/Horizon/Depth.outputs:out>
+            color3f outputs:out
+        }
+        def Shader "FoamedWater" {
+            uniform token info:id = "ND_mix_color3"
+            color3f inputs:fg = (0.80, 0.94, 0.91)
+            color3f inputs:bg.connect = </WorldcraftWater/Horizon/DepthColor.outputs:out>
+            float inputs:mix.connect = </WorldcraftWater/Horizon/FoamCoverage.outputs:out>
+            color3f outputs:out
+        }
+        def Shader "FoamRoughness" {
+            uniform token info:id = "ND_mix_float"
+            float inputs:fg = 0.58
+            float inputs:bg = 0.075
+            float inputs:mix.connect = </WorldcraftWater/Horizon/FoamCoverage.outputs:out>
+            float outputs:out
+        }
+        def Shader "Coat" {
+            uniform token info:id = "ND_mix_float"
+            float inputs:fg = 0
+            float inputs:bg = 0.65
+            float inputs:mix.connect = </WorldcraftWater/Horizon/FoamCoverage.outputs:out>
+            float outputs:out
+        }
+        def Shader "Visibility" {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1 = 1
+            float inputs:in2.connect = </WorldcraftWater/Horizon.inputs:HazeAmount>
+            float outputs:out
+        }
+        def Shader "HazedDiffuse" {
+            uniform token info:id = "ND_multiply_color3FA"
+            color3f inputs:in1.connect = </WorldcraftWater/Horizon/FoamedWater.outputs:out>
+            float inputs:in2.connect = </WorldcraftWater/Horizon/Visibility.outputs:out>
+            color3f outputs:out
+        }
+        def Shader "HazeEmission" {
+            uniform token info:id = "ND_multiply_color3FA"
+            color3f inputs:in1.connect = </WorldcraftWater/Horizon.inputs:HazeColor>
+            float inputs:in2.connect = </WorldcraftWater/Horizon.inputs:HazeAmount>
+            color3f outputs:out
+        }
+        def Shader "Surface" {
+            uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+            color3f inputs:baseColor.connect = </WorldcraftWater/Horizon/HazedDiffuse.outputs:out>
+            color3f inputs:emissiveColor.connect = </WorldcraftWater/Horizon/HazeEmission.outputs:out>
+            float3 inputs:normal.connect = </WorldcraftWater/Horizon/WaterNormal.outputs:out>
+            float inputs:roughness.connect = </WorldcraftWater/Horizon/FoamRoughness.outputs:out>
+            float inputs:metallic = 0
+            float inputs:specular = 0.32
+            float inputs:clearcoat.connect = </WorldcraftWater/Horizon/Coat.outputs:out>
+            float inputs:clearcoatRoughness = 0.06
+            float3 inputs:clearcoatNormal.connect = </WorldcraftWater/Horizon/WaterNormal.outputs:out>
+            token outputs:out
+        }
+    }
+}

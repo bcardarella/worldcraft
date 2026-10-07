@@ -1,0 +1,55 @@
+# Local work, generated previews, and build products
+/tmp/
+/output/
+/build/
+/.build/
+/.swiftpm/
+DerivedData/
+/com.apple.DeveloperTools/
+*.app/
+*.ipa
+*.xcarchive/
+*.xcresult/
+*.dSYM/
+*.dSYM.zip
+*.profraw
+*.profdata
+
+# Keep the Xcode project, shared schemes, and Package.resolved in Git.
+# User state and source-control integration metadata are machine-specific.
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+
+# Credentials and private signing configuration
+.env
+.env.*
+!.env.example
+*.local.xcconfig
+*.local.plist
+*.local.env
+BuildCredentials.plist
+*.mobileprovision
+*.provisionprofile
+*.p12
+*.p8
+*.pem
+*.key
+*.cer
+
+# Tool caches, logs, editor state, and macOS metadata
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+*.log
+*.swp
+*.swo
+*~
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+/.idea/
+/.vscode/

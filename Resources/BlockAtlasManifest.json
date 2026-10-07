@@ -1,0 +1,37 @@
+{
+  "width": 1024,
+  "height": 512,
+  "tileSize": 64,
+  "padding": 4,
+  "columns": 16,
+  "shades": 4,
+  "uvOrigin": "bottom-left",
+  "imageOrigin": "top-left",
+  "grass": {
+    "top": 0,
+    "side": 1,
+    "bottom": 2
+  },
+  "dirt": 2,
+  "stone": 3,
+  "wood": {
+    "side": 5,
+    "end": 6
+  },
+  "birch": {
+    "side": 16,
+    "end": 17
+  },
+  "basalt": 12,
+  "coral": 13,
+  "limestone": 15,
+  "lava": 28,
+  "solidPlants": [
+    25,
+    26,
+    27,
+    29,
+    30,
+    31
+  ]
+}

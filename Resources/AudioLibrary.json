@@ -1,0 +1,2818 @@
+{
+  "version": 1,
+  "tracks": [
+    {
+      "id": "music_meadow_01",
+      "title": "Little Footpaths",
+      "mood": "meadow",
+      "duration": 82.28571428571428,
+      "bpm": 70,
+      "file": "music_meadow_01.m4a"
+    },
+    {
+      "id": "music_meadow_02",
+      "title": "The Afternoon Garden",
+      "mood": "meadow",
+      "duration": 77.83783783783784,
+      "bpm": 74,
+      "file": "music_meadow_02.m4a"
+    },
+    {
+      "id": "music_meadow_03",
+      "title": "Where the Light Lands",
+      "mood": "meadow",
+      "duration": 73.84615384615385,
+      "bpm": 78,
+      "file": "music_meadow_03.m4a"
+    },
+    {
+      "id": "music_forest_01",
+      "title": "Between the Branches",
+      "mood": "forest",
+      "duration": 87.27272727272727,
+      "bpm": 66,
+      "file": "music_forest_01.m4a"
+    },
+    {
+      "id": "music_forest_02",
+      "title": "Fernlight",
+      "mood": "forest",
+      "duration": 82.28571428571428,
+      "bpm": 70,
+      "file": "music_forest_02.m4a"
+    },
+    {
+      "id": "music_forest_03",
+      "title": "Old Woodland Letters",
+      "mood": "forest",
+      "duration": 77.83783783783784,
+      "bpm": 74,
+      "file": "music_forest_03.m4a"
+    },
+    {
+      "id": "music_coast_01",
+      "title": "Seaglass",
+      "mood": "coast",
+      "duration": 77.83783783783784,
+      "bpm": 74,
+      "file": "music_coast_01.m4a"
+    },
+    {
+      "id": "music_coast_02",
+      "title": "The Tidal Almanac",
+      "mood": "coast",
+      "duration": 73.84615384615385,
+      "bpm": 78,
+      "file": "music_coast_02.m4a"
+    },
+    {
+      "id": "music_coast_03",
+      "title": "Small Boats at Dawn",
+      "mood": "coast",
+      "duration": 70.2439024390244,
+      "bpm": 82,
+      "file": "music_coast_03.m4a"
+    },
+    {
+      "id": "music_desert_01",
+      "title": "Amber Horizons",
+      "mood": "desert",
+      "duration": 84.70588235294117,
+      "bpm": 68,
+      "file": "music_desert_01.m4a"
+    },
+    {
+      "id": "music_desert_02",
+      "title": "A Well in the Sand",
+      "mood": "desert",
+      "duration": 80.0,
+      "bpm": 72,
+      "file": "music_desert_02.m4a"
+    },
+    {
+      "id": "music_desert_03",
+      "title": "The Long Caravan",
+      "mood": "desert",
+      "duration": 75.78947368421052,
+      "bpm": 76,
+      "file": "music_desert_03.m4a"
+    },
+    {
+      "id": "music_snow_01",
+      "title": "Snow on the Windowsill",
+      "mood": "snow",
+      "duration": 96.0,
+      "bpm": 60,
+      "file": "music_snow_01.m4a"
+    },
+    {
+      "id": "music_snow_02",
+      "title": "A Blue Quiet",
+      "mood": "snow",
+      "duration": 90.0,
+      "bpm": 64,
+      "file": "music_snow_02.m4a"
+    },
+    {
+      "id": "music_snow_03",
+      "title": "Winter Lanterns",
+      "mood": "snow",
+      "duration": 84.70588235294117,
+      "bpm": 68,
+      "file": "music_snow_03.m4a"
+    },
+    {
+      "id": "music_town_01",
+      "title": "Market Day",
+      "mood": "town",
+      "duration": 70.2439024390244,
+      "bpm": 82,
+      "file": "music_town_01.m4a"
+    },
+    {
+      "id": "music_town_02",
+      "title": "Windows Above the Square",
+      "mood": "town",
+      "duration": 66.97674418604652,
+      "bpm": 86,
+      "file": "music_town_02.m4a"
+    },
+    {
+      "id": "music_town_03",
+      "title": "Home by Lamplight",
+      "mood": "town",
+      "duration": 64.0,
+      "bpm": 90,
+      "file": "music_town_03.m4a"
+    },
+    {
+      "id": "music_night_01",
+      "title": "When the World Sleeps",
+      "mood": "night",
+      "duration": 102.85714285714286,
+      "bpm": 56,
+      "file": "music_night_01.m4a"
+    },
+    {
+      "id": "music_night_02",
+      "title": "Paper Constellations",
+      "mood": "night",
+      "duration": 96.0,
+      "bpm": 60,
+      "file": "music_night_02.m4a"
+    },
+    {
+      "id": "music_night_03",
+      "title": "Midnight Orchard",
+      "mood": "night",
+      "duration": 90.0,
+      "bpm": 64,
+      "file": "music_night_03.m4a"
+    },
+    {
+      "id": "music_cave_01",
+      "title": "Stone Remembers",
+      "mood": "cave",
+      "duration": 99.31034482758622,
+      "bpm": 58,
+      "file": "music_cave_01.m4a"
+    },
+    {
+      "id": "music_cave_02",
+      "title": "The Hidden Chamber",
+      "mood": "cave",
+      "duration": 92.90322580645162,
+      "bpm": 62,
+      "file": "music_cave_02.m4a"
+    },
+    {
+      "id": "music_cave_03",
+      "title": "Below the Roots",
+      "mood": "cave",
+      "duration": 87.27272727272727,
+      "bpm": 66,
+      "file": "music_cave_03.m4a"
+    },
+    {
+      "id": "music_underwater_01",
+      "title": "Aqua Gardens",
+      "mood": "underwater",
+      "duration": 92.90322580645162,
+      "bpm": 62,
+      "file": "music_underwater_01.m4a"
+    },
+    {
+      "id": "music_underwater_02",
+      "title": "Pearl Windows",
+      "mood": "underwater",
+      "duration": 87.27272727272727,
+      "bpm": 66,
+      "file": "music_underwater_02.m4a"
+    },
+    {
+      "id": "music_underwater_03",
+      "title": "The Slow Blue Waltz",
+      "mood": "underwater",
+      "duration": 82.28571428571428,
+      "bpm": 70,
+      "file": "music_underwater_03.m4a"
+    },
+    {
+      "id": "music_space_01",
+      "title": "A Thousand Distant Homes",
+      "mood": "space",
+      "duration": 106.66666666666667,
+      "bpm": 54,
+      "file": "music_space_01.m4a"
+    },
+    {
+      "id": "music_space_02",
+      "title": "Orbiting Quietly",
+      "mood": "space",
+      "duration": 99.31034482758622,
+      "bpm": 58,
+      "file": "music_space_02.m4a"
+    },
+    {
+      "id": "music_space_03",
+      "title": "Messages in Starlight",
+      "mood": "space",
+      "duration": 92.90322580645162,
+      "bpm": 62,
+      "file": "music_space_03.m4a"
+    },
+    {
+      "id": "music_lava_01",
+      "title": "The Ember Court",
+      "mood": "lava",
+      "duration": 90.0,
+      "bpm": 64,
+      "file": "music_lava_01.m4a"
+    },
+    {
+      "id": "music_lava_02",
+      "title": "Gold Beneath the Ash",
+      "mood": "lava",
+      "duration": 84.70588235294117,
+      "bpm": 68,
+      "file": "music_lava_02.m4a"
+    },
+    {
+      "id": "music_lava_03",
+      "title": "A Hearth Among Suns",
+      "mood": "lava",
+      "duration": 80.0,
+      "bpm": 72,
+      "file": "music_lava_03.m4a"
+    },
+    {
+      "id": "music_race_01",
+      "title": "Sunlit Circuit",
+      "mood": "race",
+      "duration": 71.11111111111111,
+      "bpm": 108,
+      "file": "music_race_01.m4a"
+    },
+    {
+      "id": "music_race_02",
+      "title": "The Coastal Sprint",
+      "mood": "race",
+      "duration": 68.57142857142857,
+      "bpm": 112,
+      "file": "music_race_02.m4a"
+    },
+    {
+      "id": "music_race_03",
+      "title": "Last Lap Home",
+      "mood": "race",
+      "duration": 66.20689655172414,
+      "bpm": 116,
+      "file": "music_race_03.m4a"
+    },
+    {
+      "id": "music_castle_01",
+      "title": "Hay Hay's Hiding Place",
+      "mood": "castle",
+      "duration": 80.0,
+      "bpm": 72,
+      "file": "music_castle_01.m4a"
+    },
+    {
+      "id": "music_castle_02",
+      "title": "The Winding Stair",
+      "mood": "castle",
+      "duration": 75.78947368421052,
+      "bpm": 76,
+      "file": "music_castle_02.m4a"
+    },
+    {
+      "id": "music_castle_03",
+      "title": "A Friend in the Tower",
+      "mood": "castle",
+      "duration": 72.0,
+      "bpm": 80,
+      "file": "music_castle_03.m4a"
+    }
+  ],
+  "effects": [
+    {
+      "event": "step_grass",
+      "file": "fx_step_grass_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_grass",
+      "file": "fx_step_grass_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_grass",
+      "file": "fx_step_grass_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_grass",
+      "file": "fx_step_grass_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "hit_grass",
+      "file": "fx_hit_grass_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_grass",
+      "file": "fx_hit_grass_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_grass",
+      "file": "fx_hit_grass_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_grass",
+      "file": "fx_hit_grass_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_grass",
+      "file": "fx_break_grass_01.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_grass",
+      "file": "fx_break_grass_02.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_grass",
+      "file": "fx_break_grass_03.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_grass",
+      "file": "fx_break_grass_04.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_grass",
+      "file": "fx_place_grass_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_grass",
+      "file": "fx_place_grass_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_grass",
+      "file": "fx_place_grass_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_grass",
+      "file": "fx_place_grass_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "step_dirt",
+      "file": "fx_step_dirt_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_dirt",
+      "file": "fx_step_dirt_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_dirt",
+      "file": "fx_step_dirt_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_dirt",
+      "file": "fx_step_dirt_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "hit_dirt",
+      "file": "fx_hit_dirt_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_dirt",
+      "file": "fx_hit_dirt_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_dirt",
+      "file": "fx_hit_dirt_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_dirt",
+      "file": "fx_hit_dirt_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_dirt",
+      "file": "fx_break_dirt_01.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_dirt",
+      "file": "fx_break_dirt_02.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_dirt",
+      "file": "fx_break_dirt_03.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_dirt",
+      "file": "fx_break_dirt_04.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_dirt",
+      "file": "fx_place_dirt_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_dirt",
+      "file": "fx_place_dirt_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_dirt",
+      "file": "fx_place_dirt_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_dirt",
+      "file": "fx_place_dirt_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "step_sand",
+      "file": "fx_step_sand_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_sand",
+      "file": "fx_step_sand_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_sand",
+      "file": "fx_step_sand_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_sand",
+      "file": "fx_step_sand_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "hit_sand",
+      "file": "fx_hit_sand_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_sand",
+      "file": "fx_hit_sand_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_sand",
+      "file": "fx_hit_sand_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_sand",
+      "file": "fx_hit_sand_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_sand",
+      "file": "fx_break_sand_01.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_sand",
+      "file": "fx_break_sand_02.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_sand",
+      "file": "fx_break_sand_03.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_sand",
+      "file": "fx_break_sand_04.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_sand",
+      "file": "fx_place_sand_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_sand",
+      "file": "fx_place_sand_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_sand",
+      "file": "fx_place_sand_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_sand",
+      "file": "fx_place_sand_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "step_snow",
+      "file": "fx_step_snow_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_snow",
+      "file": "fx_step_snow_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_snow",
+      "file": "fx_step_snow_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_snow",
+      "file": "fx_step_snow_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "hit_snow",
+      "file": "fx_hit_snow_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_snow",
+      "file": "fx_hit_snow_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_snow",
+      "file": "fx_hit_snow_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_snow",
+      "file": "fx_hit_snow_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_snow",
+      "file": "fx_break_snow_01.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_snow",
+      "file": "fx_break_snow_02.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_snow",
+      "file": "fx_break_snow_03.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_snow",
+      "file": "fx_break_snow_04.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_snow",
+      "file": "fx_place_snow_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_snow",
+      "file": "fx_place_snow_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_snow",
+      "file": "fx_place_snow_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_snow",
+      "file": "fx_place_snow_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "step_wood",
+      "file": "fx_step_wood_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_wood",
+      "file": "fx_step_wood_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_wood",
+      "file": "fx_step_wood_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_wood",
+      "file": "fx_step_wood_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "hit_wood",
+      "file": "fx_hit_wood_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_wood",
+      "file": "fx_hit_wood_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_wood",
+      "file": "fx_hit_wood_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_wood",
+      "file": "fx_hit_wood_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_wood",
+      "file": "fx_break_wood_01.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_wood",
+      "file": "fx_break_wood_02.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_wood",
+      "file": "fx_break_wood_03.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_wood",
+      "file": "fx_break_wood_04.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_wood",
+      "file": "fx_place_wood_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_wood",
+      "file": "fx_place_wood_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_wood",
+      "file": "fx_place_wood_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_wood",
+      "file": "fx_place_wood_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "step_stone",
+      "file": "fx_step_stone_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_stone",
+      "file": "fx_step_stone_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_stone",
+      "file": "fx_step_stone_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_stone",
+      "file": "fx_step_stone_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "hit_stone",
+      "file": "fx_hit_stone_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_stone",
+      "file": "fx_hit_stone_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_stone",
+      "file": "fx_hit_stone_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_stone",
+      "file": "fx_hit_stone_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_stone",
+      "file": "fx_break_stone_01.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_stone",
+      "file": "fx_break_stone_02.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_stone",
+      "file": "fx_break_stone_03.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_stone",
+      "file": "fx_break_stone_04.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_stone",
+      "file": "fx_place_stone_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_stone",
+      "file": "fx_place_stone_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_stone",
+      "file": "fx_place_stone_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_stone",
+      "file": "fx_place_stone_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "step_glass",
+      "file": "fx_step_glass_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_glass",
+      "file": "fx_step_glass_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_glass",
+      "file": "fx_step_glass_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_glass",
+      "file": "fx_step_glass_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "hit_glass",
+      "file": "fx_hit_glass_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_glass",
+      "file": "fx_hit_glass_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_glass",
+      "file": "fx_hit_glass_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_glass",
+      "file": "fx_hit_glass_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_glass",
+      "file": "fx_break_glass_01.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_glass",
+      "file": "fx_break_glass_02.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_glass",
+      "file": "fx_break_glass_03.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_glass",
+      "file": "fx_break_glass_04.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_glass",
+      "file": "fx_place_glass_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_glass",
+      "file": "fx_place_glass_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_glass",
+      "file": "fx_place_glass_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_glass",
+      "file": "fx_place_glass_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "step_foliage",
+      "file": "fx_step_foliage_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_foliage",
+      "file": "fx_step_foliage_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_foliage",
+      "file": "fx_step_foliage_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "step_foliage",
+      "file": "fx_step_foliage_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "hit_foliage",
+      "file": "fx_hit_foliage_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_foliage",
+      "file": "fx_hit_foliage_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_foliage",
+      "file": "fx_hit_foliage_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "hit_foliage",
+      "file": "fx_hit_foliage_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_foliage",
+      "file": "fx_break_foliage_01.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_foliage",
+      "file": "fx_break_foliage_02.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_foliage",
+      "file": "fx_break_foliage_03.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "break_foliage",
+      "file": "fx_break_foliage_04.wav",
+      "duration": 0.8,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_foliage",
+      "file": "fx_place_foliage_01.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_foliage",
+      "file": "fx_place_foliage_02.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_foliage",
+      "file": "fx_place_foliage_03.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "place_foliage",
+      "file": "fx_place_foliage_04.wav",
+      "duration": 0.38,
+      "loop": false,
+      "gain": -6
+    },
+    {
+      "event": "sheep",
+      "file": "fx_sheep_01.wav",
+      "duration": 1.1,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "sheep",
+      "file": "fx_sheep_02.wav",
+      "duration": 1.1,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "sheep",
+      "file": "fx_sheep_03.wav",
+      "duration": 1.1,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "fox",
+      "file": "fx_fox_01.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "fox",
+      "file": "fx_fox_02.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "fox",
+      "file": "fx_fox_03.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "deer",
+      "file": "fx_deer_01.wav",
+      "duration": 1.35,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "deer",
+      "file": "fx_deer_02.wav",
+      "duration": 1.35,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "deer",
+      "file": "fx_deer_03.wav",
+      "duration": 1.35,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "rabbit",
+      "file": "fx_rabbit_01.wav",
+      "duration": 0.73,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rabbit",
+      "file": "fx_rabbit_02.wav",
+      "duration": 0.73,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rabbit",
+      "file": "fx_rabbit_03.wav",
+      "duration": 0.73,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "cow",
+      "file": "fx_cow_01.wav",
+      "duration": 1.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "cow",
+      "file": "fx_cow_02.wav",
+      "duration": 1.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "cow",
+      "file": "fx_cow_03.wav",
+      "duration": 1.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "pig",
+      "file": "fx_pig_01.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "pig",
+      "file": "fx_pig_02.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "pig",
+      "file": "fx_pig_03.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "horse",
+      "file": "fx_horse_01.wav",
+      "duration": 1.75,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "horse",
+      "file": "fx_horse_02.wav",
+      "duration": 1.75,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "horse",
+      "file": "fx_horse_03.wav",
+      "duration": 1.75,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "goat",
+      "file": "fx_goat_01.wav",
+      "duration": 1.15,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "goat",
+      "file": "fx_goat_02.wav",
+      "duration": 1.15,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "goat",
+      "file": "fx_goat_03.wav",
+      "duration": 1.15,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "wolf",
+      "file": "fx_wolf_01.wav",
+      "duration": 2.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "wolf",
+      "file": "fx_wolf_02.wav",
+      "duration": 2.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "wolf",
+      "file": "fx_wolf_03.wav",
+      "duration": 2.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "bear",
+      "file": "fx_bear_01.wav",
+      "duration": 1.7,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "bear",
+      "file": "fx_bear_02.wav",
+      "duration": 1.7,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "bear",
+      "file": "fx_bear_03.wav",
+      "duration": 1.7,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "chicken",
+      "file": "fx_chicken_01.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "chicken",
+      "file": "fx_chicken_02.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "chicken",
+      "file": "fx_chicken_03.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "duck",
+      "file": "fx_duck_01.wav",
+      "duration": 0.95,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "duck",
+      "file": "fx_duck_02.wav",
+      "duration": 0.95,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "duck",
+      "file": "fx_duck_03.wav",
+      "duration": 0.95,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "frog",
+      "file": "fx_frog_01.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "frog",
+      "file": "fx_frog_02.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "frog",
+      "file": "fx_frog_03.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "parrot",
+      "file": "fx_parrot_01.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "parrot",
+      "file": "fx_parrot_02.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "parrot",
+      "file": "fx_parrot_03.wav",
+      "duration": 0.85,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "zebra",
+      "file": "fx_zebra_01.wav",
+      "duration": 1.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "zebra",
+      "file": "fx_zebra_02.wav",
+      "duration": 1.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "zebra",
+      "file": "fx_zebra_03.wav",
+      "duration": 1.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "camel",
+      "file": "fx_camel_01.wav",
+      "duration": 1.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "camel",
+      "file": "fx_camel_02.wav",
+      "duration": 1.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "camel",
+      "file": "fx_camel_03.wav",
+      "duration": 1.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "penguin",
+      "file": "fx_penguin_01.wav",
+      "duration": 1.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "penguin",
+      "file": "fx_penguin_02.wav",
+      "duration": 1.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "penguin",
+      "file": "fx_penguin_03.wav",
+      "duration": 1.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "fish",
+      "file": "fx_fish_01.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "fish",
+      "file": "fx_fish_02.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "fish",
+      "file": "fx_fish_03.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "panda",
+      "file": "fx_panda_01.wav",
+      "duration": 1.1,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "panda",
+      "file": "fx_panda_02.wav",
+      "duration": 1.1,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "panda",
+      "file": "fx_panda_03.wav",
+      "duration": 1.1,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "elephant",
+      "file": "fx_elephant_01.wav",
+      "duration": 2.35,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "elephant",
+      "file": "fx_elephant_02.wav",
+      "duration": 2.35,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "elephant",
+      "file": "fx_elephant_03.wav",
+      "duration": 2.35,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "giraffe",
+      "file": "fx_giraffe_01.wav",
+      "duration": 1.45,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "giraffe",
+      "file": "fx_giraffe_02.wav",
+      "duration": 1.45,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "giraffe",
+      "file": "fx_giraffe_03.wav",
+      "duration": 1.45,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "tortoise",
+      "file": "fx_tortoise_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "tortoise",
+      "file": "fx_tortoise_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "tortoise",
+      "file": "fx_tortoise_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "otter",
+      "file": "fx_otter_01.wav",
+      "duration": 0.95,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "otter",
+      "file": "fx_otter_02.wav",
+      "duration": 0.95,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "otter",
+      "file": "fx_otter_03.wav",
+      "duration": 0.95,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "boar",
+      "file": "fx_boar_01.wav",
+      "duration": 1.05,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "boar",
+      "file": "fx_boar_02.wav",
+      "duration": 1.05,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "boar",
+      "file": "fx_boar_03.wav",
+      "duration": 1.05,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "dog_bark",
+      "file": "fx_dog_bark_01.wav",
+      "duration": 0.9,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "dog_bark",
+      "file": "fx_dog_bark_02.wav",
+      "duration": 0.9,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "dog_bark",
+      "file": "fx_dog_bark_03.wav",
+      "duration": 0.9,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "hay_hay",
+      "file": "fx_hay_hay_01.wav",
+      "duration": 1.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "hay_hay",
+      "file": "fx_hay_hay_02.wav",
+      "duration": 1.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "hay_hay",
+      "file": "fx_hay_hay_03.wav",
+      "duration": 1.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "rex_roar",
+      "file": "fx_rex_roar_01.wav",
+      "duration": 3.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "rex_roar",
+      "file": "fx_rex_roar_02.wav",
+      "duration": 3.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "rex_roar",
+      "file": "fx_rex_roar_03.wav",
+      "duration": 3.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "raptor_call",
+      "file": "fx_raptor_call_01.wav",
+      "duration": 1.65,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "raptor_call",
+      "file": "fx_raptor_call_02.wav",
+      "duration": 1.65,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "raptor_call",
+      "file": "fx_raptor_call_03.wav",
+      "duration": 1.65,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "triceratops",
+      "file": "fx_triceratops_01.wav",
+      "duration": 2.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "triceratops",
+      "file": "fx_triceratops_02.wav",
+      "duration": 2.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "triceratops",
+      "file": "fx_triceratops_03.wav",
+      "duration": 2.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "stegosaurus",
+      "file": "fx_stegosaurus_01.wav",
+      "duration": 2.15,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "stegosaurus",
+      "file": "fx_stegosaurus_02.wav",
+      "duration": 2.15,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "stegosaurus",
+      "file": "fx_stegosaurus_03.wav",
+      "duration": 2.15,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "ankylosaurus",
+      "file": "fx_ankylosaurus_01.wav",
+      "duration": 1.65,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "ankylosaurus",
+      "file": "fx_ankylosaurus_02.wav",
+      "duration": 1.65,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "ankylosaurus",
+      "file": "fx_ankylosaurus_03.wav",
+      "duration": 1.65,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "brachiosaurus",
+      "file": "fx_brachiosaurus_01.wav",
+      "duration": 3.75,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "brachiosaurus",
+      "file": "fx_brachiosaurus_02.wav",
+      "duration": 3.75,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "brachiosaurus",
+      "file": "fx_brachiosaurus_03.wav",
+      "duration": 3.75,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "parasaurolophus",
+      "file": "fx_parasaurolophus_01.wav",
+      "duration": 2.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "parasaurolophus",
+      "file": "fx_parasaurolophus_02.wav",
+      "duration": 2.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "parasaurolophus",
+      "file": "fx_parasaurolophus_03.wav",
+      "duration": 2.55,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "spinosaurus",
+      "file": "fx_spinosaurus_01.wav",
+      "duration": 3.05,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "spinosaurus",
+      "file": "fx_spinosaurus_02.wav",
+      "duration": 3.05,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "spinosaurus",
+      "file": "fx_spinosaurus_03.wav",
+      "duration": 3.05,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "colossal_roar",
+      "file": "fx_colossal_roar_01.wav",
+      "duration": 5.75,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "colossal_roar",
+      "file": "fx_colossal_roar_02.wav",
+      "duration": 5.75,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "colossal_roar",
+      "file": "fx_colossal_roar_03.wav",
+      "duration": 5.75,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "dinosaur_call",
+      "file": "fx_dinosaur_call_01.wav",
+      "duration": 2.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "dinosaur_call",
+      "file": "fx_dinosaur_call_02.wav",
+      "duration": 2.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "dinosaur_call",
+      "file": "fx_dinosaur_call_03.wav",
+      "duration": 2.25,
+      "loop": false,
+      "gain": -3
+    },
+    {
+      "event": "wind",
+      "file": "fx_wind_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -22
+    },
+    {
+      "event": "rain",
+      "file": "fx_rain_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -21
+    },
+    {
+      "event": "river",
+      "file": "fx_river_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -16
+    },
+    {
+      "event": "ocean",
+      "file": "fx_ocean_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -18
+    },
+    {
+      "event": "fire",
+      "file": "fx_fire_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -20
+    },
+    {
+      "event": "lake",
+      "file": "fx_lake_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -23
+    },
+    {
+      "event": "lava",
+      "file": "fx_lava_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -18
+    },
+    {
+      "event": "underwater",
+      "file": "fx_underwater_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -22
+    },
+    {
+      "event": "cave",
+      "file": "fx_cave_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -25
+    },
+    {
+      "event": "car_engine",
+      "file": "fx_car_engine_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -18
+    },
+    {
+      "event": "race_engine",
+      "file": "fx_race_engine_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -19
+    },
+    {
+      "event": "rocket_engine",
+      "file": "fx_rocket_engine_01.wav",
+      "duration": 18,
+      "loop": true,
+      "gain": -24
+    },
+    {
+      "event": "birds",
+      "file": "fx_birds_01.wav",
+      "duration": 20,
+      "loop": true,
+      "gain": -19
+    },
+    {
+      "event": "birds",
+      "file": "fx_birds_02.wav",
+      "duration": 20,
+      "loop": true,
+      "gain": -19
+    },
+    {
+      "event": "crickets",
+      "file": "fx_crickets_01.wav",
+      "duration": 20,
+      "loop": true,
+      "gain": -19
+    },
+    {
+      "event": "crickets",
+      "file": "fx_crickets_02.wav",
+      "duration": 20,
+      "loop": true,
+      "gain": -19
+    },
+    {
+      "event": "town",
+      "file": "fx_town_01.wav",
+      "duration": 20,
+      "loop": true,
+      "gain": -23
+    },
+    {
+      "event": "town",
+      "file": "fx_town_02.wav",
+      "duration": 20,
+      "loop": true,
+      "gain": -23
+    },
+    {
+      "event": "splash",
+      "file": "fx_splash_01.wav",
+      "duration": 1.1,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "splash",
+      "file": "fx_splash_02.wav",
+      "duration": 1.1,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "splash",
+      "file": "fx_splash_03.wav",
+      "duration": 1.1,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "splash",
+      "file": "fx_splash_04.wav",
+      "duration": 1.1,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "swim",
+      "file": "fx_swim_01.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "swim",
+      "file": "fx_swim_02.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "swim",
+      "file": "fx_swim_03.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "swim",
+      "file": "fx_swim_04.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "water_exit",
+      "file": "fx_water_exit_01.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "water_exit",
+      "file": "fx_water_exit_02.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "water_exit",
+      "file": "fx_water_exit_03.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "water_exit",
+      "file": "fx_water_exit_04.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "drink",
+      "file": "fx_drink_01.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "drink",
+      "file": "fx_drink_02.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "drink",
+      "file": "fx_drink_03.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "drink",
+      "file": "fx_drink_04.wav",
+      "duration": 0.7,
+      "loop": false,
+      "gain": -8
+    },
+    {
+      "event": "pickup",
+      "file": "fx_pickup_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "pickup",
+      "file": "fx_pickup_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "pickup",
+      "file": "fx_pickup_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_open",
+      "file": "fx_inventory_open_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_open",
+      "file": "fx_inventory_open_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_open",
+      "file": "fx_inventory_open_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_close",
+      "file": "fx_inventory_close_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_close",
+      "file": "fx_inventory_close_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_close",
+      "file": "fx_inventory_close_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_move",
+      "file": "fx_inventory_move_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_move",
+      "file": "fx_inventory_move_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_move",
+      "file": "fx_inventory_move_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_select",
+      "file": "fx_inventory_select_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_select",
+      "file": "fx_inventory_select_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "inventory_select",
+      "file": "fx_inventory_select_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "hotbar",
+      "file": "fx_hotbar_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "hotbar",
+      "file": "fx_hotbar_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "hotbar",
+      "file": "fx_hotbar_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -12
+    },
+    {
+      "event": "feed",
+      "file": "fx_feed_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "feed",
+      "file": "fx_feed_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "feed",
+      "file": "fx_feed_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "pet",
+      "file": "fx_pet_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "pet",
+      "file": "fx_pet_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "pet",
+      "file": "fx_pet_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "jump",
+      "file": "fx_jump_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "jump",
+      "file": "fx_jump_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "jump",
+      "file": "fx_jump_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "land",
+      "file": "fx_land_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "land",
+      "file": "fx_land_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "land",
+      "file": "fx_land_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "flight_start",
+      "file": "fx_flight_start_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "flight_start",
+      "file": "fx_flight_start_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "flight_start",
+      "file": "fx_flight_start_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "flight_stop",
+      "file": "fx_flight_stop_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "flight_stop",
+      "file": "fx_flight_stop_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "flight_stop",
+      "file": "fx_flight_stop_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_door",
+      "file": "fx_car_door_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_door",
+      "file": "fx_car_door_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_door",
+      "file": "fx_car_door_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_start",
+      "file": "fx_car_start_01.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_start",
+      "file": "fx_car_start_02.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_start",
+      "file": "fx_car_start_03.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_stop",
+      "file": "fx_car_stop_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_stop",
+      "file": "fx_car_stop_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_stop",
+      "file": "fx_car_stop_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_skid",
+      "file": "fx_car_skid_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_skid",
+      "file": "fx_car_skid_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_skid",
+      "file": "fx_car_skid_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_bump",
+      "file": "fx_car_bump_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_bump",
+      "file": "fx_car_bump_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_bump",
+      "file": "fx_car_bump_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_horn",
+      "file": "fx_car_horn_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_horn",
+      "file": "fx_car_horn_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "car_horn",
+      "file": "fx_car_horn_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "building_door",
+      "file": "fx_building_door_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "building_door",
+      "file": "fx_building_door_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "building_door",
+      "file": "fx_building_door_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "door_scratch",
+      "file": "fx_door_scratch_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "door_scratch",
+      "file": "fx_door_scratch_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "door_scratch",
+      "file": "fx_door_scratch_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rex_chomp",
+      "file": "fx_rex_chomp_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rex_chomp",
+      "file": "fx_rex_chomp_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rex_chomp",
+      "file": "fx_rex_chomp_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "npc_talk",
+      "file": "fx_npc_talk_01.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "npc_talk",
+      "file": "fx_npc_talk_02.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "npc_talk",
+      "file": "fx_npc_talk_03.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "npc_work",
+      "file": "fx_npc_work_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "npc_work",
+      "file": "fx_npc_work_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "npc_work",
+      "file": "fx_npc_work_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "npc_cheer",
+      "file": "fx_npc_cheer_01.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "npc_cheer",
+      "file": "fx_npc_cheer_02.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "npc_cheer",
+      "file": "fx_npc_cheer_03.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rocket_door",
+      "file": "fx_rocket_door_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rocket_door",
+      "file": "fx_rocket_door_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rocket_door",
+      "file": "fx_rocket_door_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rocket_arrival",
+      "file": "fx_rocket_arrival_01.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rocket_arrival",
+      "file": "fx_rocket_arrival_02.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "rocket_arrival",
+      "file": "fx_rocket_arrival_03.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "countdown",
+      "file": "fx_countdown_01.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "countdown",
+      "file": "fx_countdown_02.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "countdown",
+      "file": "fx_countdown_03.wav",
+      "duration": 0.75,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "lap",
+      "file": "fx_lap_01.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "lap",
+      "file": "fx_lap_02.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "lap",
+      "file": "fx_lap_03.wav",
+      "duration": 1.4,
+      "loop": false,
+      "gain": -7
+    },
+    {
+      "event": "thunder",
+      "file": "fx_thunder_01.wav",
+      "duration": 6,
+      "loop": false,
+      "gain": -10
+    },
+    {
+      "event": "thunder",
+      "file": "fx_thunder_02.wav",
+      "duration": 6,
+      "loop": false,
+      "gain": -10
+    },
+    {
+      "event": "thunder",
+      "file": "fx_thunder_03.wav",
+      "duration": 6,
+      "loop": false,
+      "gain": -10
+    }
+  ]
+}

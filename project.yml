@@ -1,0 +1,130 @@
+name: Worldcraft
+options:
+  bundleIdPrefix: com.worldcraft
+  deploymentTarget:
+    visionOS: '2.0'
+    iOS: '18.0'
+  xcodeVersion: '16.0'
+settings:
+  base:
+    SWIFT_VERSION: '6.0'
+    SWIFT_STRICT_CONCURRENCY: complete
+configFiles:
+  Debug: Config/Build.xcconfig
+  Release: Config/Build.xcconfig
+targetTemplates:
+  PrivateBuildCredentials:
+    postBuildScripts:
+      - name: Embed optional API keys from environment
+        script: /usr/bin/python3 "$SRCROOT/Tools/embed_build_credentials.py"
+        inputFiles:
+          - $(SRCROOT)/Tools/embed_build_credentials.py
+        outputFiles:
+          - $(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/BuildCredentials.plist
+          - $(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/TypeSafe.local.plist
+          - $(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/OpenRouter.local.plist
+        showEnvVars: false
+        basedOnDependencyAnalysis: false
+targets:
+  WorldCore:
+    type: library.static
+    platform: visionOS
+    sources:
+      - path: Sources/WorldCore
+    settings:
+      base:
+        PRODUCT_MODULE_NAME: WorldCore
+        DEFINES_MODULE: YES
+  Worldcraft:
+    type: application
+    platform: visionOS
+    templates: [PrivateBuildCredentials]
+    sources:
+      - path: App
+        excludes:
+          - Shaders
+          - Info-iPad.plist
+      - path: App/Shaders
+        buildPhase: resources
+      - path: Resources
+        buildPhase: resources
+    dependencies:
+      - target: WorldCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(WORLDCRAFT_BUNDLE_ID_PREFIX).vision
+        INFOPLIST_FILE: App/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        MARKETING_VERSION: 0.1.0
+        CURRENT_PROJECT_VERSION: 1
+        TARGETED_DEVICE_FAMILY: 7
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+        GENERATE_INFOPLIST_FILE: NO
+  WorldCoreiPad:
+    type: library.static
+    platform: iOS
+    sources:
+      - path: Sources/WorldCore
+    settings:
+      base:
+        PRODUCT_MODULE_NAME: WorldCore
+        DEFINES_MODULE: YES
+        SUPPORTS_MACCATALYST: NO
+  WorldcraftiPad:
+    type: application
+    platform: iOS
+    templates: [PrivateBuildCredentials]
+    sources:
+      - path: App
+        excludes:
+          - Shaders
+          - Info.plist
+      - path: App/Shaders
+        buildPhase: resources
+      - path: Resources
+        buildPhase: resources
+    dependencies:
+      - target: WorldCoreiPad
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(WORLDCRAFT_BUNDLE_ID_PREFIX).ipad
+        PRODUCT_NAME: WorldcraftiPad
+        INFOPLIST_FILE: App/Info-iPad.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIconIPad
+        MARKETING_VERSION: 0.1.0
+        CURRENT_PROJECT_VERSION: 1
+        TARGETED_DEVICE_FAMILY: 2
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: NO
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+        GENERATE_INFOPLIST_FILE: NO
+schemes:
+  Worldcraft:
+    build:
+      targets:
+        Worldcraft: all
+    run:
+      config: Release
+    profile:
+      config: Release
+  Worldcraft Debug:
+    build:
+      targets:
+        Worldcraft: all
+    run:
+      config: Debug
+  Worldcraft iPad:
+    build:
+      targets:
+        WorldcraftiPad: all
+    run:
+      config: Release
+    profile:
+      config: Release
+  Worldcraft iPad Debug:
+    build:
+      targets:
+        WorldcraftiPad: all
+    run:
+      config: Debug

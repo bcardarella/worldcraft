@@ -1,0 +1,95 @@
+#include <metal_stdlib>
+using namespace metal;
+
+struct WaterSource { float4 geometry; uint4 identity; };
+struct WaterUniforms { float4 clockAndOrigin; uint4 counts; };
+struct WaterRipple { float4 wave; uint4 identity; };
+struct WaterVertex {
+  packed_float3 position;
+  float2 uv;
+  half4 normal;
+  half4 tangent;
+  half4 bitangent;
+  float2 detailUV;
+  half4 optics;
+};
+
+static_assert(sizeof(WaterSource) == 32, "Water source layout");
+static_assert(sizeof(WaterUniforms) == 32, "Water uniform layout");
+static_assert(sizeof(WaterRipple) == 32, "Water ripple layout");
+static_assert(sizeof(WaterVertex) == 64, "Water vertex layout");
+
+// Matches WorldEnvironment.water and WaterAppearance: ocean tides, analytic swells and
+// body-local disturbances. Lava has slow viscous folds and local upwellings.
+kernel void animateWorldWater(device const WaterSource *source [[buffer(0)]],
+  device WaterVertex *vertices [[buffer(1)]], constant WaterUniforms &frame [[buffer(2)]],
+  constant WaterRipple *ripples [[buffer(3)]], uint i [[thread_position_in_grid]]) {
+  if (i >= frame.counts.x) return;
+  const WaterSource sample = source[i];
+  const float x = sample.geometry.x + frame.clockAndOrigin.z;
+  const float z = sample.geometry.y + frame.clockAndOrigin.w;
+  const float t = frame.clockAndOrigin.x;
+  const uint kind = sample.identity.z;
+  float height = sample.geometry.w + (kind == 0 ? frame.clockAndOrigin.y : 0.0f);
+  float dx = 0.0f, dz = 0.0f, wake = 0.0f;
+  const float attenuation = clamp(sample.geometry.z / 5.0f, 0.08f, 1.0f);
+  const float4 waves[4] = { float4(.42f,.075f,.035f,.52f), float4(.22f,.19f,.08f,.83f), float4(.13f,-.09f,.31f,1.22f), float4(.045f,.73f,.49f,2.0f) };
+  const float4 molten[3] = { float4(.085f,.26f,.12f,.11f), float4(.045f,-.18f,.37f,.16f), float4(.025f,.82f,.61f,.30f) };
+  if (kind == 0 || kind == 2) {
+    for (uint j = 0; j < (kind == 2 ? 3u : 4u); ++j) {
+      const float4 wave = kind == 2 ? molten[j] : waves[j];
+      const float phase = x * wave.y + z * wave.z - t * wave.w;
+      const float a = wave.x * attenuation;
+      height += a * sin(phase);
+      const float slope = a * cos(phase);
+      dx += slope * wave.y; dz += slope * wave.z;
+      if (kind == 0) {
+        height -= a * .18f * cos(2.0f * phase);
+        const float harmonicSlope = a * .36f * sin(2.0f * phase);
+        dx += harmonicSlope * wave.y; dz += harmonicSlope * wave.z;
+      }
+    }
+  }
+  if (kind == 2) {
+    const float phase = x * .31f + z * .27f - t * .43f;
+    const float crest = max(0.0f, sin(phase));
+    height += .12f * attenuation * pow(crest,12.0f);
+    const float slope = 1.44f * attenuation * pow(crest,11.0f) * cos(phase);
+    dx += slope * .31f; dz += slope * .27f;
+  }
+  for (uint j = 0; j < frame.counts.y; ++j) {
+    const WaterRipple ripple = ripples[j];
+    if (any(sample.identity.xy != ripple.identity.xy)) continue;
+    const float2 offset = float2(x,z) - ripple.wave.xy;
+    // Five-second ripples have negligible energy outside this radius.
+    if (dot(offset, offset) > 256.0f) continue;
+    const float radius = length(offset), age = ripple.wave.z;
+    const float front = radius - age * (kind == 2 ? .65f : 2.3f);
+    const float frequency = kind == 2 ? 3.0f : 5.0f;
+    const float envelope = ripple.wave.w * exp(-age * (kind == 2 ? 1.8f : .8f)) * exp(-front * front / 1.8f) / (1.0f + radius * .2f);
+    const float phase = front * frequency;
+    height += envelope * sin(phase);
+    wake += envelope * 5.0f;
+    const float derivative = envelope * (frequency * cos(phase) + sin(phase) * (-front / .9f - .2f / (1.0f + radius * .2f)));
+    if (radius > .001f) { dx += derivative * offset.x / radius; dz += derivative * offset.y / radius; }
+  }
+  // `vertex` is a Metal function qualifier, so it cannot name a local variable.
+  WaterVertex outputVertex;
+  outputVertex.position = packed_float3(sample.geometry.x, height, sample.geometry.y);
+  outputVertex.normal = half4(half3(normalize(float3(-dx,1,-dz))), 0);
+  const float scale = kind == 2 ? .0625f : .1f;
+  const float2 current = float2(as_type<half2>(sample.identity.w));
+  const float2 flow = kind == 3 ? -current*scale : kind == 2 ? float2(.002f,-.0012f) : float2(.008f,-.004f);
+  outputVertex.uv = sample.geometry.xy * scale + fract(frame.clockAndOrigin.zw * scale + t * flow);
+  outputVertex.tangent = half4(half3(normalize(float3(1,dx,0))), 0);
+  outputVertex.bitangent = half4(half3(normalize(float3(0,dz,1))), 0);
+  outputVertex.detailUV = sample.geometry.xy * .27f + fract(frame.clockAndOrigin.zw * .27f + t * (kind == 3 ? -current*.27f : float2(-.012f,.01f)));
+  const float wetDepth = max(0.0f, sample.geometry.z + height - sample.geometry.w);
+  const float shore = (1.0f - smoothstep(.2f,2.6f,wetDepth)) * (.55f + .45f * sin(x*.18f + z*.13f - t*.9f));
+  const float crest = kind == 0 ? smoothstep(.30f,.66f,height - sample.geometry.w - frame.clockAndOrigin.y) * .65f : 0.0f;
+  const float foam = kind == 2 ? 0.0f : min(1.0f, shore * (kind == 1 ? .22f : .88f) + crest + wake);
+  const float absorption = 1.0f - exp(-wetDepth * .16f);
+  const float opacity = (.12f + .80f * absorption) * smoothstep(0.0f,.65f,wetDepth);
+  outputVertex.optics = half4(absorption, foam, kind == 1 ? .24f : .70f, opacity);
+  vertices[i] = outputVertex;
+}

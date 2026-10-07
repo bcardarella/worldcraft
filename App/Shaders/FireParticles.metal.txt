@@ -1,0 +1,52 @@
+#include <metal_stdlib>
+using namespace metal;
+
+struct FireSource { float4 positionAndSeed; float4 wind; };
+struct FireFrame { float4 eyeAndTime; uint4 counts; };
+struct FireVertex { packed_float3 position; float u; float v; };
+static_assert(sizeof(FireSource) == 32, "Fire source stride");
+static_assert(sizeof(FireFrame) == 32, "Fire frame stride");
+static_assert(sizeof(FireVertex) == 20, "Fire vertex stride");
+
+float fireRandom(uint n) {
+  n ^= n >> 16; n *= 0x7feb352d; n ^= n >> 15; n *= 0x846ca68b; n ^= n >> 16;
+  return float(n & 65535) / 65536.f;
+}
+
+kernel void animateFireParticles(constant FireSource *sources [[buffer(0)]],
+  device FireVertex *output [[buffer(1)]], constant FireFrame &frame [[buffer(2)]],
+  uint i [[thread_position_in_grid]]) {
+  if (i >= frame.counts.y) return;
+  uint sourceIndex = i / 160, slot = (i / 4) % 40, corner = i % 4;
+  FireVertex out;
+  if (sourceIndex >= frame.counts.x) {
+    out.position = packed_float3(0); out.u = 0; out.v = 0; output[i] = out; return;
+  }
+  FireSource source = sources[sourceIndex];
+  uint seed = uint(source.positionAndSeed.w) + slot * 7919;
+  float r = fireRandom(seed), r2 = fireRandom(seed + 1), r3 = fireRandom(seed + 2);
+  bool smoke = slot < 12, ember = slot >= 36;
+  float life = smoke ? 2.1f + r * .4f : ember ? .75f + r * .3f : .5f + r * .3f;
+  float time = frame.eyeAndTime.w, age = fract(time / life + r2), seconds = age * life;
+  float spin = time * (smoke ? 1.1f : 3.5f) + r3 * 6.2831853f;
+  float drift = (smoke ? 1.7f : ember ? .8f : 1.f) * seconds * seconds * .5f;
+  float3 center = source.positionAndSeed.xyz + float3((r2 - .5f) * .17f, smoke ? .32f : .08f, (r3 - .5f) * .17f);
+  center += float3(source.wind.x, 0, source.wind.z) * drift;
+  center.y += seconds * (smoke ? .6f : ember ? 1.2f + r * .5f : .6f + r * .3f) + .35f * seconds * seconds;
+  float curl = smoke ? .14f : ember ? .015f : .035f;
+  center += float3(sin(spin), 0, cos(spin * .9f)) * curl * age;
+  float width = smoke ? .22f + age * .62f : ember ? .015f + r * .013f : (.25f + r * .12f) * (1 - age * .8f);
+  float height = width * (smoke ? 1.f : ember ? 2.8f : 2.4f);
+  float3 facing = frame.eyeAndTime.xyz - center;
+  facing = dot(facing, facing) > .000001f ? normalize(facing) : float3(0,0,1);
+  float3 right = cross(float3(0,1,0), facing);
+  right = dot(right, right) > .000001f ? normalize(right) : float3(1,0,0);
+  float3 up = cross(facing, right);
+  uint row = smoke ? 2 : ember ? 3 : slot % 2;
+  uint cell = min(31u, uint(age * 32));
+  float u = (corner == 1 || corner == 2) ? 1 : 0, v = corner >= 2 ? 1 : 0;
+  out.position = packed_float3(center + right * ((u - .5f) * width) + up * ((v - .5f) * height));
+  out.u = (float(cell) + .0625f + u * .875f) / 32.f;
+  out.v = 1.f - (float(row) + .9375f - v * .875f) / 4.f;
+  output[i] = out;
+}

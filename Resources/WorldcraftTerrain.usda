@@ -1,0 +1,227 @@
+#usda 1.0
+( defaultPrim = "WorldcraftTerrain" )
+def Scope "WorldcraftTerrain" {
+    def Material "Repeated" {
+        asset inputs:Atlas = @BlockAtlas.png@
+        asset inputs:Normals = @BlockNormals.png@
+        asset inputs:Occlusion = @BlockOcclusion.png@
+        color3f inputs:HazeColor = (0.3, 0.5, 0.6)
+        float inputs:HazeAmount = 0
+        token outputs:mtlx:surface.connect = </WorldcraftTerrain/Repeated/Surface.outputs:out>
+        def Shader "Repeats" {
+            uniform token info:id = "ND_texcoord_vector2"
+            int inputs:index = 0
+            float2 outputs:out
+        }
+        def Shader "Metadata" {
+            uniform token info:id = "ND_texcoord_vector2"
+            int inputs:index = 1
+            float2 outputs:out
+        }
+        def Shader "TileValue" {
+            uniform token info:id = "ND_extract_vector2"
+            float2 inputs:in.connect = </WorldcraftTerrain/Repeated/Metadata.outputs:out>
+            int inputs:index = 1
+            float outputs:out
+        }
+        def Shader "TileRound" {
+            uniform token info:id = "ND_add_float"
+            float inputs:in1.connect = </WorldcraftTerrain/Repeated/TileValue.outputs:out>
+            float inputs:in2 = 0.5
+            float outputs:out
+        }
+        def Shader "Tile" {
+            uniform token info:id = "ND_floor_float"
+            float inputs:in.connect = </WorldcraftTerrain/Repeated/TileRound.outputs:out>
+            float outputs:out
+        }
+        def Shader "RowFraction" {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </WorldcraftTerrain/Repeated/Tile.outputs:out>
+            float inputs:in2 = 0.0625
+            float outputs:out
+        }
+        def Shader "Row" {
+            uniform token info:id = "ND_floor_float"
+            float inputs:in.connect = </WorldcraftTerrain/Repeated/RowFraction.outputs:out>
+            float outputs:out
+        }
+        def Shader "RowStart" {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </WorldcraftTerrain/Repeated/Row.outputs:out>
+            float inputs:in2 = 16
+            float outputs:out
+        }
+        def Shader "Column" {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1.connect = </WorldcraftTerrain/Repeated/Tile.outputs:out>
+            float inputs:in2.connect = </WorldcraftTerrain/Repeated/RowStart.outputs:out>
+            float outputs:out
+        }
+        def Shader "TileU" {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </WorldcraftTerrain/Repeated/Column.outputs:out>
+            float inputs:in2 = 0.0625
+            float outputs:out
+        }
+        def Shader "TileV" {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </WorldcraftTerrain/Repeated/Row.outputs:out>
+            float inputs:in2 = 0.125
+            float outputs:out
+        }
+        def Shader "OriginU" {
+            uniform token info:id = "ND_add_float"
+            float inputs:in1.connect = </WorldcraftTerrain/Repeated/TileU.outputs:out>
+            float inputs:in2 = 0.00439453125
+            float outputs:out
+        }
+        def Shader "OriginV" {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1 = 0.8837890625
+            float inputs:in2.connect = </WorldcraftTerrain/Repeated/TileV.outputs:out>
+            float outputs:out
+        }
+        def Shader "Origin" {
+            uniform token info:id = "ND_combine2_vector2"
+            float inputs:in1.connect = </WorldcraftTerrain/Repeated/OriginU.outputs:out>
+            float inputs:in2.connect = </WorldcraftTerrain/Repeated/OriginV.outputs:out>
+            float2 outputs:out
+        }
+        def Shader "WholeBlocks" {
+            uniform token info:id = "ND_floor_vector2"
+            float2 inputs:in.connect = </WorldcraftTerrain/Repeated/Repeats.outputs:out>
+            float2 outputs:out
+        }
+        def Shader "Fraction" {
+            uniform token info:id = "ND_subtract_vector2"
+            float2 inputs:in1.connect = </WorldcraftTerrain/Repeated/Repeats.outputs:out>
+            float2 inputs:in2.connect = </WorldcraftTerrain/Repeated/WholeBlocks.outputs:out>
+            float2 outputs:out
+        }
+        def Shader "WithinTile" {
+            uniform token info:id = "ND_multiply_vector2"
+            float2 inputs:in1.connect = </WorldcraftTerrain/Repeated/Fraction.outputs:out>
+            float2 inputs:in2 = (0.0537109375, 0.107421875)
+            float2 outputs:out
+        }
+        def Shader "AtlasUV" {
+            uniform token info:id = "ND_add_vector2"
+            float2 inputs:in1.connect = </WorldcraftTerrain/Repeated/Origin.outputs:out>
+            float2 inputs:in2.connect = </WorldcraftTerrain/Repeated/WithinTile.outputs:out>
+            float2 outputs:out
+        }
+        def Shader "Unwrapped" {
+            uniform token info:id = "ND_multiply_vector2"
+            float2 inputs:in1.connect = </WorldcraftTerrain/Repeated/Repeats.outputs:out>
+            float2 inputs:in2 = (0.0537109375, 0.107421875)
+            float2 outputs:out
+        }
+        def Shader "GradientX" {
+            uniform token info:id = "ND_MTL_dfdx_vector2"
+            float2 inputs:p.connect = </WorldcraftTerrain/Repeated/Unwrapped.outputs:out>
+            float2 outputs:out
+        }
+        def Shader "GradientY" {
+            uniform token info:id = "ND_MTL_dfdy_vector2"
+            float2 inputs:p.connect = </WorldcraftTerrain/Repeated/Unwrapped.outputs:out>
+            float2 outputs:out
+        }
+        def Shader "AtlasSample" {
+            uniform token info:id = "ND_RealityKitTexture2DGradient_color3"
+            asset inputs:file.connect = </WorldcraftTerrain/Repeated.inputs:Atlas>
+            float2 inputs:texcoord.connect = </WorldcraftTerrain/Repeated/AtlasUV.outputs:out>
+            float2 inputs:gradient_dPdx.connect = </WorldcraftTerrain/Repeated/GradientX.outputs:out>
+            float2 inputs:gradient_dPdy.connect = </WorldcraftTerrain/Repeated/GradientY.outputs:out>
+            string inputs:mag_filter = "nearest"
+            string inputs:min_filter = "nearest"
+            string inputs:mip_filter = "linear"
+            float inputs:max_lod_clamp = 3
+            int inputs:max_anisotropy = 4
+            color3f outputs:out
+        }
+        def Shader "NormalsSample" {
+            uniform token info:id = "ND_RealityKitTexture2DGradient_color3"
+            asset inputs:file.connect = </WorldcraftTerrain/Repeated.inputs:Normals>
+            float2 inputs:texcoord.connect = </WorldcraftTerrain/Repeated/AtlasUV.outputs:out>
+            float2 inputs:gradient_dPdx.connect = </WorldcraftTerrain/Repeated/GradientX.outputs:out>
+            float2 inputs:gradient_dPdy.connect = </WorldcraftTerrain/Repeated/GradientY.outputs:out>
+            string inputs:mag_filter = "nearest"
+            string inputs:min_filter = "nearest"
+            string inputs:mip_filter = "linear"
+            float inputs:max_lod_clamp = 3
+            int inputs:max_anisotropy = 4
+            color3f outputs:out
+        }
+        def Shader "OcclusionSample" {
+            uniform token info:id = "ND_RealityKitTexture2DGradient_color3"
+            asset inputs:file.connect = </WorldcraftTerrain/Repeated.inputs:Occlusion>
+            float2 inputs:texcoord.connect = </WorldcraftTerrain/Repeated/AtlasUV.outputs:out>
+            float2 inputs:gradient_dPdx.connect = </WorldcraftTerrain/Repeated/GradientX.outputs:out>
+            float2 inputs:gradient_dPdy.connect = </WorldcraftTerrain/Repeated/GradientY.outputs:out>
+            string inputs:mag_filter = "nearest"
+            string inputs:min_filter = "nearest"
+            string inputs:mip_filter = "linear"
+            float inputs:max_lod_clamp = 3
+            int inputs:max_anisotropy = 4
+            color3f outputs:out
+        }
+        def Shader "RawNormal" {
+            uniform token info:id = "ND_convert_color3_vector3"
+            color3f inputs:in.connect = </WorldcraftTerrain/Repeated/NormalsSample.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "DoubleNormal" {
+            uniform token info:id = "ND_multiply_vector3"
+            float3 inputs:in1.connect = </WorldcraftTerrain/Repeated/RawNormal.outputs:out>
+            float3 inputs:in2 = (2, 2, 2)
+            float3 outputs:out
+        }
+        def Shader "DecodeNormal" {
+            uniform token info:id = "ND_subtract_vector3"
+            float3 inputs:in1.connect = </WorldcraftTerrain/Repeated/DoubleNormal.outputs:out>
+            float3 inputs:in2 = (1, 1, 1)
+            float3 outputs:out
+        }
+        def Shader "Normal" {
+            uniform token info:id = "ND_normalize_vector3"
+            float3 inputs:in.connect = </WorldcraftTerrain/Repeated/DecodeNormal.outputs:out>
+            float3 outputs:out
+        }
+        def Shader "AO" {
+            uniform token info:id = "ND_extract_color3"
+            color3f inputs:in.connect = </WorldcraftTerrain/Repeated/OcclusionSample.outputs:out>
+            int inputs:index = 0
+            float outputs:out
+        }
+        def Shader "Visibility" {
+            uniform token info:id = "ND_subtract_float"
+            float inputs:in1 = 1
+            float inputs:in2.connect = </WorldcraftTerrain/Repeated.inputs:HazeAmount>
+            float outputs:out
+        }
+        def Shader "Diffuse" {
+            uniform token info:id = "ND_multiply_color3FA"
+            color3f inputs:in1.connect = </WorldcraftTerrain/Repeated/AtlasSample.outputs:out>
+            float inputs:in2.connect = </WorldcraftTerrain/Repeated/Visibility.outputs:out>
+            color3f outputs:out
+        }
+        def Shader "Haze" {
+            uniform token info:id = "ND_multiply_color3FA"
+            color3f inputs:in1.connect = </WorldcraftTerrain/Repeated.inputs:HazeColor>
+            float inputs:in2.connect = </WorldcraftTerrain/Repeated.inputs:HazeAmount>
+            color3f outputs:out
+        }
+        def Shader "Surface" {
+            uniform token info:id = "ND_realitykit_pbr_surfaceshader"
+            color3f inputs:baseColor.connect = </WorldcraftTerrain/Repeated/Diffuse.outputs:out>
+            float3 inputs:normal.connect = </WorldcraftTerrain/Repeated/Normal.outputs:out>
+            float inputs:ambientOcclusion.connect = </WorldcraftTerrain/Repeated/AO.outputs:out>
+            color3f inputs:emissiveColor.connect = </WorldcraftTerrain/Repeated/Haze.outputs:out>
+            float inputs:roughness = 0.82
+            float inputs:metallic = 0
+            float inputs:specular = 0.5
+            token outputs:out
+        }
+    }
+}

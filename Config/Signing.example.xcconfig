@@ -1,0 +1,4 @@
+// Copy to Signing.local.xcconfig and fill in your own Apple developer team.
+// Keep the local file out of Git. Do not put API keys in build settings.
+DEVELOPMENT_TEAM =
+WORLDCRAFT_BUNDLE_ID_PREFIX = com.yourname.worldcraft
